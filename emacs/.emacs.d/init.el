@@ -39,7 +39,7 @@
      ("melpa-stable" . "https://stable.melpa.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(company counsel delight dumb-jump eglot ivy magit move-text popwin projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme))
+   '(company counsel delight dumb-jump eglot ivy magit move-text popwin projectile projectile-ripgrep rust-mode ssh-agency undo-tree whole-line-or-region zenburn-theme))
  '(popwin:adjust-other-windows nil)
  '(projectile-completion-system 'ivy)
  '(projectile-enable-caching t)
