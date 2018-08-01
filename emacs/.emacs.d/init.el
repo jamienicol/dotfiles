@@ -34,6 +34,7 @@
  '(ivy-mode t)
  '(org-agenda-files (quote ("~/Dropbox/org")))
  '(org-imenu-depth 1)
+ '(org-log-done (quote time))
  '(org-startup-indented t)
  '(package-archive-priorities (quote (("melpa-stable" . 10) ("gnu" . 5) ("melpa" . 0))))
  '(package-archives
