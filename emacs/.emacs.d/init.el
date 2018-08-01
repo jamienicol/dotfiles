@@ -13,7 +13,7 @@
  '(column-number-mode t)
  '(company-backends
    (quote
-    (company-nxml company-css company-cmake company-capf company-files company-dabbrev-code company-dabbrev)))
+    (company-lsp company-nxml company-css company-cmake company-capf company-files company-dabbrev-code company-dabbrev)))
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
@@ -44,7 +44,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company counsel delight dumb-jump eglot ivy magit move-text popwin projectile projectile-ripgrep rust-mode ssh-agency undo-tree whole-line-or-region zenburn-theme)))
+    (company company-lsp cquery counsel delight dumb-jump ivy lsp-mode lsp-rust magit move-text popwin projectile projectile-ripgrep rust-mode ssh-agency undo-tree whole-line-or-region zenburn-theme)))
  '(popwin:adjust-other-windows nil)
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
@@ -116,3 +116,11 @@
           (message "Copied '%s' to the clipboard." file-name-and-line-number))
       (error "Current buffer has no associated file."))))
 (global-set-key (kbd "C-c l") 'file-name-and-line-number-to-clipboard)
+
+(require 'lsp-mode)
+(require 'cquery)
+(require 'lsp-rust)
+
+(add-hook 'rust-mode-hook #'lsp-rust-enable)
+(if (not (eq system-type 'windows-nt))
+    (add-hook 'c++-mode-hook #'lsp-cquery-enable))
