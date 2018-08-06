@@ -19,9 +19,6 @@
    (quote
     ("bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" default)))
  '(delete-selection-mode t)
- '(dumb-jump-max-find-time 30)
- '(dumb-jump-mode t)
- '(dumb-jump-selector (quote ivy))
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(eldoc-echo-area-use-multiline-p nil)
@@ -44,7 +41,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp cquery counsel delight dumb-jump ivy lsp-mode lsp-rust magit move-text popwin projectile projectile-ripgrep rust-mode ssh-agency undo-tree whole-line-or-region zenburn-theme)))
+    (company company-lsp cquery counsel delight ivy lsp-mode lsp-rust magit move-text popwin projectile projectile-ripgrep rust-mode ssh-agency undo-tree whole-line-or-region zenburn-theme)))
  '(popwin:adjust-other-windows nil)
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
