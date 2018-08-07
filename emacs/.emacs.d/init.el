@@ -22,6 +22,7 @@
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(eldoc-echo-area-use-multiline-p nil)
+ '(global-auto-revert-mode t)
  '(global-company-mode t)
  '(global-display-line-numbers-mode t)
  '(global-undo-tree-mode t)
