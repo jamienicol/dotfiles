@@ -44,8 +44,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp cquery counsel delight groovy-mode ivy lsp-mode lsp-rust magit move-text popwin projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
- '(popwin:adjust-other-windows nil)
+    (company company-lsp cquery counsel delight groovy-mode ivy lsp-mode lsp-rust magit move-text projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
@@ -77,8 +76,6 @@
 
 ;; For some reason enabling these with customize doesn't work
 (whole-line-or-region-mode)
-(require 'popwin)
-(popwin-mode)
 
 ;; Remove unwanted stuff from the mode line
 (delight '((abbrev-mode nil abbrev)
