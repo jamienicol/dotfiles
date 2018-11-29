@@ -44,7 +44,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp cquery counsel delight ivy lsp-mode lsp-rust magit move-text popwin projectile projectile-ripgrep rust-mode ssh-agency undo-tree whole-line-or-region zenburn-theme)))
+    (company company-lsp cquery counsel delight ivy lsp-mode lsp-rust magit move-text popwin projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
  '(popwin:adjust-other-windows nil)
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
