@@ -14,6 +14,8 @@
  '(company-backends
    (quote
     (company-lsp company-nxml company-css company-cmake company-capf company-files company-dabbrev-code company-dabbrev)))
+ '(company-dabbrev-downcase nil)
+ '(company-dabbrev-ignore-case t)
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
