@@ -32,6 +32,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(ivy-mode t)
+ '(notmuch-search-oldest-first nil)
  '(org-agenda-files (quote ("~/Dropbox/org")))
  '(org-imenu-depth 1)
  '(org-log-done (quote time))
@@ -44,7 +45,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp counsel cquery delight groovy-mode ivy lsp-mode lsp-rust magit move-text projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
+    (company company-lsp counsel cquery delight groovy-mode ivy lsp-mode lsp-rust magit move-text notmuch projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
@@ -101,6 +102,7 @@
 (global-set-key (kbd "C-c r") 'counsel-recentf)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c t") 'eshell)
+(global-set-key (kbd "C-c m") 'notmuch)
 
 (defun file-name-and-line-number-to-clipboard ()
   "Copy the buffer's file name and current line number to the clipboard."
