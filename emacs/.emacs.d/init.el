@@ -96,7 +96,7 @@
 
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
-(global-set-key (kbd "C-c B") 'magit-blame)
+(global-set-key (kbd "C-c B") 'magit-blame-addition)
 (global-set-key (kbd "C-c g") 'counsel-rg)
 (global-set-key (kbd "C-c G") 'projectile-ripgrep)
 (global-set-key (kbd "C-c r") 'counsel-recentf)
