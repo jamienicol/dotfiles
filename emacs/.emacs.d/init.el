@@ -104,6 +104,8 @@
 (global-set-key (kbd "C-c t") 'eshell)
 (global-set-key (kbd "C-c m") 'notmuch)
 
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 (defun file-name-and-line-number-to-clipboard ()
   "Copy the buffer's file name and current line number to the clipboard."
   (interactive)
