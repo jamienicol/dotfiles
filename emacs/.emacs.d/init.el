@@ -45,7 +45,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp counsel cquery delight groovy-mode ivy lsp-mode lsp-rust magit move-text notmuch projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
+    (company company-lsp counsel cquery delight groovy-mode ivy lsp-mode magit move-text notmuch projectile projectile-ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
@@ -120,8 +120,6 @@
 
 (require 'lsp-mode)
 (require 'cquery)
-(require 'lsp-rust)
-
-(add-hook 'rust-mode-hook #'lsp-rust-enable)
+(add-hook 'rust-mode-hook #'lsp)
 (if (not (eq system-type 'windows-nt))
-    (add-hook 'c++-mode-hook #'lsp-cquery-enable))
+    (add-hook 'c++-mode-hook #'lsp))
