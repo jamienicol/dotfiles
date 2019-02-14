@@ -45,7 +45,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp counsel cquery delight groovy-mode ivy lsp-mode magit move-text notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
+    (company company-lsp counsel cquery delight glsl-mode groovy-mode ivy lsp-mode magit move-text notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
