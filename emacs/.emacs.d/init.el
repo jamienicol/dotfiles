@@ -45,7 +45,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp counsel cquery delight glsl-mode groovy-mode ivy lsp-mode magit move-text notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region zenburn-theme)))
+    (company company-lsp counsel cquery delight glsl-mode groovy-mode ivy lsp-mode magit move-text notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region winum zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
@@ -67,7 +67,8 @@
      (kill-ring-save whole-line-or-region-kill-ring-save nil)
      (yank whole-line-or-region-yank nil)
      (comment-dwim whole-line-or-region-comment-dwim-2 nil))))
- '(winner-mode t))
+ '(winner-mode t)
+ '(winum-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -105,6 +106,17 @@
 (global-set-key (kbd "C-c m") 'notmuch)
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+(define-key winum-keymap (kbd "M-0") #'winum-select-window-0)
+(define-key winum-keymap (kbd "M-1") #'winum-select-window-1)
+(define-key winum-keymap (kbd "M-2") #'winum-select-window-2)
+(define-key winum-keymap (kbd "M-3") #'winum-select-window-3)
+(define-key winum-keymap (kbd "M-4") #'winum-select-window-4)
+(define-key winum-keymap (kbd "M-5") #'winum-select-window-5)
+(define-key winum-keymap (kbd "M-6") #'winum-select-window-6)
+(define-key winum-keymap (kbd "M-7") #'winum-select-window-7)
+(define-key winum-keymap (kbd "M-8") #'winum-select-window-8)
+(define-key winum-keymap (kbd "M-9") #'winum-select-window-9)
 
 (defun file-name-and-line-number-to-clipboard ()
   "Copy the buffer's file name and current line number to the clipboard."
