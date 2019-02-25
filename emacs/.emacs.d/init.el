@@ -16,10 +16,6 @@
     (company-lsp company-nxml company-css company-cmake company-capf company-files company-dabbrev-code company-dabbrev)))
  '(company-dabbrev-downcase nil)
  '(company-dabbrev-ignore-case t)
- '(custom-enabled-themes (quote (zenburn)))
- '(custom-safe-themes
-   (quote
-    ("ec5f697561eaf87b1d3b087dd28e61a2fc9860e4c862ea8e6b0b77bd4967d0ba" "3f44e2d33b9deb2da947523e2169031d3707eec0426e78c7b8a646ef773a2077" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" default)))
  '(delete-selection-mode t)
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
@@ -75,6 +71,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(load-theme 'zenburn t)
 
 ;; For some reason enabling these with customize doesn't work
 (whole-line-or-region-mode)
