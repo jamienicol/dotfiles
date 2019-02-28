@@ -41,7 +41,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp counsel cquery delight glsl-mode groovy-mode ivy lsp-mode magit move-text notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region winum zenburn-theme)))
+    (company company-lsp counsel cquery delight glsl-mode groovy-mode ivy lsp-mode magit move-text multiple-cursors notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region winum zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
@@ -92,6 +92,7 @@
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-.") 'mc/mark-all-dwim)
 
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
