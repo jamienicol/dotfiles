@@ -41,7 +41,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company company-lsp counsel cquery delight glsl-mode groovy-mode ivy lsp-mode magit move-text multiple-cursors notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region winum zenburn-theme)))
+    (ccls company company-lsp counsel delight glsl-mode groovy-mode ivy lsp-mode magit move-text multiple-cursors notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region winum zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
@@ -130,7 +130,7 @@
 (global-set-key (kbd "C-c l") 'file-name-and-line-number-to-clipboard)
 
 (require 'lsp-mode)
-(require 'cquery)
+(require 'ccls)
 (add-hook 'rust-mode-hook #'lsp)
 (if (not (eq system-type 'windows-nt))
     (add-hook 'c++-mode-hook #'lsp))
