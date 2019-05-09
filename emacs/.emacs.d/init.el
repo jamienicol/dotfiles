@@ -25,6 +25,8 @@
  '(global-display-line-numbers-mode t)
  '(global-undo-tree-mode t)
  '(global-whitespace-mode t)
+ '(idle-org-agenda-interval 600)
+ '(idle-org-agenda-mode t nil (idle-org-agenda))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(ivy-mode t)
@@ -41,7 +43,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (ccls company company-lsp counsel delight glsl-mode groovy-mode ivy lsp-mode magit move-text multiple-cursors notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region winum zenburn-theme)))
+    (ccls company company-lsp counsel delight glsl-mode groovy-mode idle-org-agenda ivy lsp-mode magit move-text multiple-cursors notmuch projectile ripgrep rust-mode undo-tree whole-line-or-region winum zenburn-theme)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-indexing-method (quote alien))
