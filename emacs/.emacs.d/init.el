@@ -30,6 +30,7 @@
  '(inhibit-startup-screen t)
  '(ivy-mode t)
  '(magit-display-buffer-function (quote magit-display-buffer-same-window-except-diff-v1))
+ '(make-backup-files nil)
  '(notmuch-search-oldest-first nil)
  '(org-agenda-files (quote ("~/org")))
  '(org-catch-invisible-edits (quote show-and-error))
