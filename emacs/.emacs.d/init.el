@@ -103,7 +103,7 @@
 (global-set-key (kbd "C-c g") 'counsel-rg)
 (global-set-key (kbd "C-c G") 'ripgrep-regexp)
 (global-set-key (kbd "C-c r") 'counsel-recentf)
-(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c a") 'org-agenda-list)
 (global-set-key (kbd "C-c t") 'eshell)
 (global-set-key (kbd "C-c m") 'notmuch)
 
