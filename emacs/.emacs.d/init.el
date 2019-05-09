@@ -35,6 +35,7 @@
  '(org-imenu-depth 1)
  '(org-log-done (quote time))
  '(org-startup-indented t)
+ '(org-todo-keyword-faces (quote (("SKIPPED" . "orange"))))
  '(package-archive-priorities (quote (("melpa-stable" . 10) ("gnu" . 5) ("melpa" . 0))))
  '(package-archives
    (quote
