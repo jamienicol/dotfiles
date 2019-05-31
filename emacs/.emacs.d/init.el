@@ -32,6 +32,7 @@
  '(ivy-mode t)
  '(notmuch-search-oldest-first nil)
  '(org-agenda-files (quote ("~/org")))
+ '(org-catch-invisible-edits (quote show-and-error))
  '(org-imenu-depth 1)
  '(org-log-done (quote time))
  '(org-startup-indented t)
