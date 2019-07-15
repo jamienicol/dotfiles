@@ -10,6 +10,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-save-visited-mode t)
+ '(calendar-week-start-day 1)
  '(column-number-mode t)
  '(company-backends
    (quote
