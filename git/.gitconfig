@@ -1,0 +1,5 @@
+[user]
+	name = Jamie Nicol
+	email = jamie@jamienicol.me
+[core]
+	excludesfile = /home/jamie/.gitignore_global
