@@ -97,6 +97,8 @@
 
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 
+(customize-set-variable 'ediff-window-setup-function #'ediff-setup-windows-plain)
+
 (my-package-ensure-installed 'magit)
 (customize-set-variable 'magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 (global-set-key (kbd "C-c B") 'magit-blame-addition)
