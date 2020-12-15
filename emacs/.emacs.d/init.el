@@ -122,6 +122,7 @@
 (my-package-ensure-installed 'orgit)
 
 (my-package-ensure-installed 'org-download)
+(customize-set-variable 'org-download-method 'attach)
 (require 'org-download)
 
 ;; Languages
