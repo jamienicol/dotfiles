@@ -71,6 +71,7 @@
 
 (my-package-ensure-installed 'lsp-mode)
 (require 'lsp-mode)
+(customize-set-variable 'lsp-rust-server 'rust-analyzer)
 
 ;; Navigation
 
