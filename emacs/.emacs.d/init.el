@@ -93,7 +93,7 @@
 
 (my-package-ensure-installed 'ripgrep)
 (global-set-key (kbd "C-c g") 'counsel-rg)
-(global-set-key (kbd "C-c G") 'projectile-ripgrep)
+(global-set-key (kbd "C-c G") 'ripgrep-regexp)
 
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 
