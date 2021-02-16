@@ -70,8 +70,10 @@
 (add-hook 'c++-mode-hook #'clang-format+-mode)
 
 (my-package-ensure-installed 'lsp-mode)
-(require 'lsp-mode)
 (customize-set-variable 'lsp-rust-server 'rust-analyzer)
+(customize-set-variable 'lsp-enable-file-watchers nil)
+(add-hook 'c++-mode-hook 'lsp)
+(add-hook 'rust-mode-hook 'lsp)
 
 ;; Navigation
 
