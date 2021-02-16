@@ -67,7 +67,7 @@
 (my-package-ensure-installed 'clang-format)
 (my-package-ensure-installed 'clang-format+)
 (customize-set-variable 'clang-format+-context 'modification)
-(add-hook 'c-mode-common-hook #'clang-format+-mode)
+(add-hook 'c++-mode-hook #'clang-format+-mode)
 
 (my-package-ensure-installed 'lsp-mode)
 (require 'lsp-mode)
