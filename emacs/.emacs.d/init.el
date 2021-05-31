@@ -114,6 +114,7 @@
 (customize-set-variable 'org-log-done (quote time))
 (customize-set-variable 'org-todo-keyword-faces (quote (("SKIPPED" . "orange"))))
 (customize-set-variable 'org-todo-keywords (quote ((sequence "TODO" "|" "DONE" "SKIPPED"))))
+(customize-set-variable 'org-enforce-todo-dependencies t)
 (global-set-key (kbd "C-c a") 'org-agenda-list)
 
 (my-package-ensure-installed 'idle-org-agenda)
