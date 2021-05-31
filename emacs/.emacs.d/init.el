@@ -27,6 +27,8 @@
 (customize-set-variable 'whitespace-style '(face trailing tabs space-before-tab))
 (global-whitespace-mode)
 
+(winner-mode)
+
 ;; File handling
 
 (customize-set-variable 'make-backup-files nil)
