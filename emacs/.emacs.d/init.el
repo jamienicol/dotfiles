@@ -155,3 +155,16 @@
 
 (add-hook 'compilation-filter-hook
           #'endless/colorize-compilation)
+
+
+(defun my/inhibit-kill-ring-advice (fun &rest args)
+  "Call fun without modifying the kill ring"
+  (if (interactive-p)
+      (let ((kill-ring nil)
+            (kill-ring-yank-pointer nil))
+        (call-interactively fun))
+    (apply fun args)))
+
+(advice-add 'kill-word :around 'my/inhibit-kill-ring-advice)
+(advice-add 'backward-kill-word :around 'my/inhibit-kill-ring-advice)
+
