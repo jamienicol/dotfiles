@@ -117,6 +117,7 @@
 
 (my-package-ensure-installed 'org)
 (customize-set-variable 'org-agenda-files '("~/org"))
+(customize-set-variable 'org-adapt-indentation t)
 (customize-set-variable 'org-catch-invisible-edits (quote show-and-error))
 (customize-set-variable 'org-imenu-depth 1)
 (customize-set-variable 'org-log-done (quote time))
