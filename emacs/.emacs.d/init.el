@@ -29,6 +29,23 @@
 
 (winner-mode)
 
+(global-set-key (kbd "<S-up>") 'windmove-up)
+(global-set-key (kbd "<S-down>") 'windmove-down)
+(global-set-key (kbd "<S-left>") 'windmove-left)
+(global-set-key (kbd "<S-right>") 'windmove-right)
+
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
+
+(my-package-ensure-installed 'buffer-move)
+(global-set-key (kbd "<C-S-up>") 'buf-move-up)
+(global-set-key (kbd "<C-S-down>") 'buf-move-down)
+(global-set-key (kbd "<C-S-left>") 'buf-move-left)
+(global-set-key (kbd "<C-S-right>") 'buf-move-right)
+(customize-set-variable 'buffer-move-behavior 'move)
+
 ;; File handling
 
 (customize-set-variable 'make-backup-files nil)
