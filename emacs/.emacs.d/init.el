@@ -49,6 +49,7 @@
 ;; File handling
 
 (customize-set-variable 'make-backup-files nil)
+(customize-set-variable 'vc-follow-symlinks t)
 (auto-save-visited-mode)
 (global-auto-revert-mode)
 (recentf-mode)
