@@ -124,6 +124,8 @@
 (my-package-ensure-installed 'magit)
 (customize-set-variable 'magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 (global-set-key (kbd "C-c B") 'magit-blame-addition)
+(if (eq system-type 'windows-nt)
+    (my-package-ensure-installed 'ssh-agency))
 
 (customize-set-variable 'bug-reference-url-format "https://bugzilla.mozilla.org/show_bug.cgi?id=%s")
 (customize-set-variable 'bug-reference-bug-regexp "\\([Bb]ug \\)\\([0-9]+\\)")
