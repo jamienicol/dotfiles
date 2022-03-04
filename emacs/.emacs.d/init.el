@@ -97,6 +97,8 @@
 
 ;; Navigation
 
+(define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
+
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 
 (my-package-ensure-installed 'dumb-jump)
