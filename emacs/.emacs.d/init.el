@@ -126,6 +126,9 @@
 (my-package-ensure-installed 'magit)
 (customize-set-variable 'magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 (global-set-key (kbd "C-c B") 'magit-blame-addition)
+(with-eval-after-load "magit"
+  (transient-append-suffix 'magit-rebase "-k"
+    '("-c" "Reapply all clean cherry-picks" "--reapply-cherry-picks")))
 (if (eq system-type 'windows-nt)
     (my-package-ensure-installed 'ssh-agency))
 
