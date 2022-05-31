@@ -66,6 +66,7 @@
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 
 (my-package-ensure-installed 'undo-tree)
+(customize-set-variable 'undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo-tree")))
 (global-undo-tree-mode)
 
 (my-package-ensure-installed 'move-text)
