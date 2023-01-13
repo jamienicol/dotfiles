@@ -134,7 +134,7 @@
     (my-package-ensure-installed 'ssh-agency))
 
 (customize-set-variable 'bug-reference-url-format "https://bugzilla.mozilla.org/show_bug.cgi?id=%s")
-(customize-set-variable 'bug-reference-bug-regexp "\\([Bb]ug \\)\\([0-9]+\\)")
+(customize-set-variable 'bug-reference-bug-regexp "\\([Bb]ug \\([0-9]+\\)\\)")
 (add-hook 'prog-mode-hook 'bug-reference-prog-mode)
 (add-hook 'org-mode-hook 'bug-reference-mode)
 (add-hook 'magit-mode-hook 'bug-reference-mode)
