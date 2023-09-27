@@ -16,6 +16,7 @@
 (column-number-mode)
 (global-display-line-numbers-mode)
 (customize-set-variable 'inhibit-startup-screen t)
+(setq ring-bell-function 'ignore)
 (my-package-ensure-installed 'zenburn-theme)
 (load-theme 'zenburn t)
 
