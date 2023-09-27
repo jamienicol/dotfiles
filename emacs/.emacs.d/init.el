@@ -1,6 +1,9 @@
 (require 'package)
 (add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archive-priorities '(("melpa-stable" . 10)))
 
 (defun my-package-ensure-installed (package)
   "Ensures a specified package is installed."
