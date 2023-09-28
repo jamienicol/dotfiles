@@ -111,6 +111,16 @@
 (my-package-ensure-installed 'ivy-xref)
 (customize-set-variable 'xref-show-definitions-function #'ivy-xref-show-defs)
 
+;; Add magit-status to project switch commands. Magit does this
+;; automatically, but usually magit won't be loaded the first time we
+;; switch project.
+(with-eval-after-load 'project
+  (define-key project-prefix-map "m" #'magit-project-status)
+  (add-to-list 'project-switch-commands '(magit-project-status "Magit") t))
+(customize-set-variable 'project-switch-use-entire-map t)
+
+;; project.el is pretty good nowadays, but sometimes still slower at
+;; finding files in big projects. So keep projectile around for now.
 (my-package-ensure-installed 'projectile)
 (customize-set-variable 'projectile-completion-system 'ivy)
 (customize-set-variable 'projectile-enable-caching t)
