@@ -171,6 +171,7 @@
 (my-package-ensure-installed 'kotlin-mode)
 (my-package-ensure-installed 'glsl-mode)
 (my-package-ensure-installed 'groovy-mode)
+(my-package-ensure-installed 'yaml-mode)
 
 (add-to-list 'auto-mode-alist '("\\.mozconfig\\'" . sh-mode))
 
