@@ -97,6 +97,7 @@
 (my-package-ensure-installed 'eglot)
 (add-hook 'c++-mode-hook 'eglot)
 (add-hook 'rust-mode-hook 'eglot)
+(add-hook 'python-mode-hook 'eglot)
 
 ;; Navigation
 
