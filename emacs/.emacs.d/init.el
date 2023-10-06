@@ -23,13 +23,19 @@
 (my-package-ensure-installed 'zenburn-theme)
 (load-theme 'zenburn t)
 
+(my-package-ensure-installed 'diminish)
+(diminish 'eldoc-mode)
+(diminish 'abbrev-mode)
+
 (my-package-ensure-installed 'ivy)
 (my-package-ensure-installed 'counsel)
 (ivy-mode)
+(diminish 'ivy-mode)
 
 (customize-set-variable 'whitespace-display-mappings nil)
 (customize-set-variable 'whitespace-style '(face trailing tabs space-before-tab))
 (global-whitespace-mode)
+(diminish 'global-whitespace-mode)
 
 (winner-mode)
 
@@ -66,11 +72,13 @@
 
 (my-package-ensure-installed 'ws-butler)
 (ws-butler-global-mode)
+(diminish 'ws-butler-mode)
 
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 
 (my-package-ensure-installed 'undo-tree)
 (customize-set-variable 'undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo-tree")))
+(customize-set-variable 'undo-tree-mode-lighter nil)
 (global-undo-tree-mode)
 
 (my-package-ensure-installed 'move-text)
@@ -79,6 +87,7 @@
 
 (my-package-ensure-installed 'whole-line-or-region)
 (whole-line-or-region-global-mode)
+(diminish 'whole-line-or-region-local-mode)
 
 (my-package-ensure-installed 'multiple-cursors)
 (global-set-key (kbd "C-.") 'mc/mark-all-dwim)
@@ -88,11 +97,13 @@
 (customize-set-variable 'company-dabbrev-downcase nil)
 (customize-set-variable 'company-dabbrev-code-ignore-case nil)
 (global-company-mode)
+(diminish 'company-mode)
 
 (my-package-ensure-installed 'clang-format)
 (my-package-ensure-installed 'clang-format+)
 (customize-set-variable 'clang-format+-context 'modification)
 (add-hook 'c++-mode-hook #'clang-format+-mode)
+(diminish 'clang-format+-mode)
 
 (my-package-ensure-installed 'eglot)
 (add-hook 'c++-mode-hook 'eglot)
