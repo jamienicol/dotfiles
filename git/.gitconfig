@@ -3,5 +3,7 @@
 	email = jamie@jamiern.uk
 [core]
 	excludesfile = /home/jamie/.gitignore_global
+	fsmonitor = true
+	untrackedcache = true
 [init]
 	defaultBranch = main
