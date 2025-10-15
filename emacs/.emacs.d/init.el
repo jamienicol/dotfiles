@@ -1,222 +1,83 @@
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(setq package-archive-priorities '(("melpa-stable" . 10)))
-
-(defun my-package-ensure-installed (package)
-  "Ensures a specified package is installed."
-  (unless (package-installed-p package)
-    (unless package-archive-contents
-      (package-refresh-contents))
-    (package-install package)))
-
-;; UI
-
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
-(column-number-mode)
-(global-display-line-numbers-mode)
-(customize-set-variable 'inhibit-startup-screen t)
-(setq ring-bell-function 'ignore)
-(my-package-ensure-installed 'zenburn-theme)
-(load-theme 'zenburn t)
+(setq inhibit-splash-screen t)
+(setq initial-scratch-message nil)
 
-(my-package-ensure-installed 'diminish)
-(diminish 'eldoc-mode)
-(diminish 'abbrev-mode)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
-(my-package-ensure-installed 'ivy)
-(my-package-ensure-installed 'counsel)
-(ivy-mode)
-(diminish 'ivy-mode)
-
-(customize-set-variable 'whitespace-display-mappings nil)
-(customize-set-variable 'whitespace-style '(face trailing tabs space-before-tab))
-(global-whitespace-mode)
-(diminish 'global-whitespace-mode)
-
-(winner-mode)
-
-(global-set-key (kbd "<S-up>") 'windmove-up)
-(global-set-key (kbd "<S-down>") 'windmove-down)
-(global-set-key (kbd "<S-left>") 'windmove-left)
-(global-set-key (kbd "<S-right>") 'windmove-right)
-
-(add-hook 'org-shiftup-final-hook 'windmove-up)
-(add-hook 'org-shiftdown-final-hook 'windmove-down)
-(add-hook 'org-shiftleft-final-hook 'windmove-left)
-(add-hook 'org-shiftright-final-hook 'windmove-right)
-
-(my-package-ensure-installed 'buffer-move)
-(global-set-key (kbd "<C-S-up>") 'buf-move-up)
-(global-set-key (kbd "<C-S-down>") 'buf-move-down)
-(global-set-key (kbd "<C-S-left>") 'buf-move-left)
-(global-set-key (kbd "<C-S-right>") 'buf-move-right)
-(customize-set-variable 'buffer-move-behavior 'move)
-
-;; File handling
-
-(customize-set-variable 'make-backup-files nil)
-(customize-set-variable 'vc-follow-symlinks t)
-(auto-save-visited-mode)
-(global-auto-revert-mode)
-(recentf-mode)
-(global-set-key (kbd "C-c r") 'counsel-recentf)
-
-;; Editing
-
-(customize-set-variable 'indent-tabs-mode nil)
+(global-display-line-numbers-mode 1)
+(setq-default show-trailing-whitespace t)
 (delete-selection-mode)
 
-(my-package-ensure-installed 'ws-butler)
-(ws-butler-global-mode)
-(diminish 'ws-butler-mode)
+(use-package vertico
+  :ensure t
+  :custom
+  (read-file-name-completion-ignore-case t)
+  (read-buffer-completion-ignore-case t)
+  :init
+  (vertico-mode))
 
-(global-set-key (kbd "M-y") 'counsel-yank-pop)
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-auto t)
+  :init
+  (global-corfu-mode))
 
-(my-package-ensure-installed 'undo-tree)
-(customize-set-variable 'undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo-tree")))
-(customize-set-variable 'undo-tree-mode-lighter nil)
-(global-undo-tree-mode)
+(use-package consult
+  :ensure t
+  :bind (("C-c g" . consult-ripgrep)
+	 ("C-c i" . consult-imenu)))
 
-(my-package-ensure-installed 'move-text)
-(global-set-key (kbd "M-<up>") 'move-text-up)
-(global-set-key (kbd "M-<down>") 'move-text-down)
+(use-package whole-line-or-region
+  :ensure t
+  :init
+  (whole-line-or-region-global-mode))
 
-(my-package-ensure-installed 'whole-line-or-region)
-(whole-line-or-region-global-mode)
-(diminish 'whole-line-or-region-local-mode)
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode))
 
-(my-package-ensure-installed 'multiple-cursors)
-(global-set-key (kbd "C-.") 'mc/mark-all-dwim)
+(use-package zenburn-theme
+  :ensure t
+  :init
+  (load-theme 'zenburn t))
 
-(my-package-ensure-installed 'company)
-(customize-set-variable 'company-backends '(company-capf company-files company-dabbrev-code company-dabbrev))
-(customize-set-variable 'company-dabbrev-downcase nil)
-(customize-set-variable 'company-dabbrev-code-ignore-case nil)
-(global-company-mode)
-(diminish 'company-mode)
+(use-package vc
+  :custom
+  (vc-follow-symlinks t))
 
-(my-package-ensure-installed 'clang-format)
-(my-package-ensure-installed 'clang-format+)
-(customize-set-variable 'clang-format+-context 'modification)
-(add-hook 'c++-mode-hook #'clang-format+-mode)
-(diminish 'clang-format+-mode)
+(use-package magit
+  :ensure t)
 
-(my-package-ensure-installed 'eglot)
-(add-hook 'c++-mode-hook 'eglot)
-(add-hook 'rust-mode-hook 'eglot)
-(add-hook 'python-mode-hook 'eglot)
-
-;; Navigation
-
-(define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
-
-(global-set-key (kbd "C-c i") 'counsel-imenu)
-
-(my-package-ensure-installed 'dumb-jump)
-(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-
-(my-package-ensure-installed 'ivy-xref)
-(customize-set-variable 'xref-show-definitions-function #'ivy-xref-show-defs)
-
-;; Add magit-status to project switch commands. Magit does this
-;; automatically, but usually magit won't be loaded the first time we
-;; switch project.
-(with-eval-after-load 'project
-  (define-key project-prefix-map "m" #'magit-project-status)
-  (add-to-list 'project-switch-commands '(magit-project-status "Magit") t))
-(customize-set-variable 'project-switch-use-entire-map t)
-
-;; project.el is pretty good nowadays, but sometimes still slower at
-;; finding files in big projects. So keep projectile around for now.
-(my-package-ensure-installed 'projectile)
-(customize-set-variable 'projectile-completion-system 'ivy)
-(customize-set-variable 'projectile-enable-caching t)
-(customize-set-variable 'projectile-indexing-method 'alien)
-(customize-set-variable 'projectile-switch-project-action 'projectile-dired)
-(projectile-mode)
-(global-set-key (kbd "C-c p") 'projectile-command-map)
-
-(my-package-ensure-installed 'ripgrep)
-(global-set-key (kbd "C-c g") 'counsel-rg)
-(global-set-key (kbd "C-c G") 'ripgrep-regexp)
-
-(global-set-key (kbd "C-c o") 'ff-find-other-file)
-
-(customize-set-variable 'ediff-window-setup-function #'ediff-setup-windows-plain)
-
-(my-package-ensure-installed 'magit)
-(customize-set-variable 'magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
-(global-set-key (kbd "C-c m") 'magit-project-status)
-(global-set-key (kbd "C-c B") 'magit-blame-addition)
-(with-eval-after-load "magit"
-  (transient-append-suffix 'magit-rebase "-k"
-    '("-c" "Reapply all clean cherry-picks" "--reapply-cherry-picks")))
-(if (eq system-type 'windows-nt)
-    (my-package-ensure-installed 'ssh-agency))
-
-(customize-set-variable 'bug-reference-url-format "https://bugzilla.mozilla.org/show_bug.cgi?id=%s")
-(customize-set-variable 'bug-reference-bug-regexp "\\([Bb]ug \\([0-9]+\\)\\)")
-(add-hook 'prog-mode-hook 'bug-reference-prog-mode)
-(add-hook 'org-mode-hook 'bug-reference-mode)
-(add-hook 'magit-mode-hook 'bug-reference-mode)
-
-;; Org
-
-(customize-set-variable 'org-agenda-files '("~/org"))
-(customize-set-variable 'org-adapt-indentation t)
-(customize-set-variable 'org-catch-invisible-edits (quote show-and-error))
-(customize-set-variable 'org-imenu-depth 1)
-(customize-set-variable 'org-log-done (quote time))
-(customize-set-variable 'org-todo-keyword-faces (quote (("SKIPPED" . "orange"))))
-(customize-set-variable 'org-todo-keywords (quote ((sequence "TODO" "|" "DONE" "SKIPPED"))))
-(customize-set-variable 'org-enforce-todo-dependencies t)
-(global-set-key (kbd "C-c a") 'org-agenda-list)
-
-(my-package-ensure-installed 'idle-org-agenda)
-(require 'idle-org-agenda)
-(customize-set-variable 'idle-org-agenda-interval 3600)
-(idle-org-agenda-mode)
-
-(my-package-ensure-installed 'orgit)
-
-(my-package-ensure-installed 'org-download)
-(customize-set-variable 'org-download-method 'attach)
-(require 'org-download)
-
-;; Languages
-
-(my-package-ensure-installed 'rust-mode)
-(my-package-ensure-installed 'kotlin-mode)
-(my-package-ensure-installed 'glsl-mode)
-(my-package-ensure-installed 'groovy-mode)
-(my-package-ensure-installed 'yaml-mode)
+(use-package jj-mode
+  :vc (:url "https://github.com/bolivier/jj-mode.el"))
 
 (add-to-list 'auto-mode-alist '("\\.mozconfig\\'" . sh-mode))
 
-;; Misc
-(require 'ansi-color)
-(defun endless/colorize-compilation ()
-  "Colorize from `compilation-filter-start' to `point'."
-  (let ((inhibit-read-only t))
-    (ansi-color-apply-on-region
-     compilation-filter-start (point))))
+(use-package bug-reference
+  :custom
+  (bug-reference-bug-regexp "\\([Bb]ug \\([0-9]+\\)\\)")
+  :config
+  (setq-default bug-reference-url-format "https://bugzilla.mozilla.org/show_bug.cgi?id=%s")
+  :hook ((prog-mode . bug-reference-prog-mode)
+	 (org-mode . bug-reference-mode)
+	 (magit-mode . bug-reference-mode)))
 
-(add-hook 'compilation-filter-hook
-          #'endless/colorize-compilation)
+(use-package move-text
+  :ensure t
+  :init (move-text-default-bindings))
 
-
-(defun my/inhibit-kill-ring-advice (fun &rest args)
-  "Call fun without modifying the kill ring"
-  (if (interactive-p)
-      (let ((kill-ring nil)
-            (kill-ring-yank-pointer nil))
-        (call-interactively fun))
-    (apply fun args)))
-
-(advice-add 'kill-word :around 'my/inhibit-kill-ring-advice)
-(advice-add 'backward-kill-word :around 'my/inhibit-kill-ring-advice)
-
+(use-package org
+  :custom
+  (org-adapt-indentation t)
+  (org-catch-invisible-edits (quote show-and-error))
+  (org-imenu-depth 1)
+  (org-log-done (quote time))
+  (org-todo-keyword-faces (quote (("SKIPPED" . "orange"))))
+  (org-todo-keywords (quote ((sequence "TODO" "|" "DONE" "SKIPPED"))))
+  (org-enforce-todo-dependencies t))
