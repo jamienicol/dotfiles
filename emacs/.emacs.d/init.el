@@ -4,9 +4,10 @@
 (setq inhibit-splash-screen t)
 (setq initial-scratch-message nil)
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+(use-package package
+  :init
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize))
 
 (global-display-line-numbers-mode 1)
 (setq-default show-trailing-whitespace t)
@@ -39,6 +40,11 @@
 
 (use-package undo-tree
   :ensure t
+  :custom
+  (undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo-tree")))
+  (undo-tree-visualizer-diff t)
+  (undo-tree-visualizer-timestamps t)
+  (undo-tree-visualizer-relative-timestamps nil)
   :init
   (global-undo-tree-mode))
 
@@ -52,7 +58,8 @@
   (vc-follow-symlinks t))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :bind (("C-c b" . magit-blame-addition)))
 
 (use-package jj-mode
   :vc (:url "https://github.com/bolivier/jj-mode.el"))
@@ -81,3 +88,17 @@
   (org-todo-keyword-faces (quote (("SKIPPED" . "orange"))))
   (org-todo-keywords (quote ((sequence "TODO" "|" "DONE" "SKIPPED"))))
   (org-enforce-todo-dependencies t))
+
+(use-package recentf
+  :bind (("C-c r" . recentf-open)))
+
+(use-package files)
+(setq make-backup-files nil)
+(global-auto-revert-mode)
+(auto-save-visited-mode)
+(setq auto-save-default nil)
+
+(use-package ws-butler
+  :ensure t
+  :config
+  (ws-butler-global-mode))
